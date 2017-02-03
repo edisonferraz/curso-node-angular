@@ -9,13 +9,15 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AlbumsListComponent } from './components/albums-list/albums-list.component';
 import { AlbumAddComponent } from './components/album-add/album-add.component';
 import { AlbumDetailComponent } from './components/album-detail/album-detail.component';
+import { AlbumEditComponent } from './components/album-edit/album-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsListComponent,
     AlbumAddComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    AlbumEditComponent
   ],
   imports: [
     BrowserModule,
