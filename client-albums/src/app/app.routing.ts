@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AlbumsListComponent } from './components/albums-list/albums-list.component';
 import { AlbumAddComponent } from './components/album-add/album-add.component';
+import { AlbumDetailComponent } from './components/album-detail/album-detail.component';
 
 const appRoutes: Routes = [
   { path: '', component: AlbumsListComponent },
+  { path: 'album/:id', component: AlbumDetailComponent },
   { path: 'crear-album', component: AlbumAddComponent },
   { path: '**', component: AlbumsListComponent }
 ]

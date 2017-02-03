@@ -26,6 +26,28 @@ export class AlbumAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.album = new Album("", "");
+  }
+
+  onSubmit() {
+    this._albumService.addAlbum(this.album).subscribe(
+      response => {
+        this.album = response.album;
+
+        if (!response.album) {
+          alert('Error en el servidor');
+        } else {
+          this._router.navigate(['/']);
+        }
+      },
+      error => {
+        this.errorMessage = <any>error;
+
+        if (this.errorMessage != null) {
+          console.log(this.errorMessage);
+        }
+      }
+    )
   }
 
 }
