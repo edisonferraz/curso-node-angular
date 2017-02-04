@@ -41,6 +41,9 @@ export class AlbumService {
       .map(res => res.json());
   }
 
-
+  deleteAlbum(id: string) {
+    return this._http.delete(this.url + 'album/' + id)
+      .map(res => res.json());
+  }
 
 }

@@ -17,6 +17,7 @@ export class AlbumsListComponent implements OnInit {
   public albums: Album[];
   public errorMessage: any;
   public loading: boolean;
+  public confirmado;
 
   constructor(
     private _route: ActivatedRoute,
@@ -51,6 +52,34 @@ export class AlbumsListComponent implements OnInit {
         }
       }
     )
+  }
+
+  onDeleteConfirm(id) {
+    this.confirmado = id;
+  }
+
+  onCancelAlbum() {
+    this.confirmado = null;
+  }
+
+  onDeleteAlbum(id) {
+    this._albumService.deleteAlbum(id).subscribe(
+      result => {
+        if (!result.album) {
+          alert('Error en el servidor');
+        }
+
+        this.getAlbums();
+      },
+      error => {
+        this.errorMessage = <any>error;
+
+        if (this.errorMessage != null) {
+          console.log(this.errorMessage);
+        }
+      }
+    )
+
   }
 
 }
