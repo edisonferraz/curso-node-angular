@@ -78,8 +78,7 @@ export class AlbumsListComponent implements OnInit {
           console.log(this.errorMessage);
         }
       }
-    )
-
+    );
   }
 
 }
